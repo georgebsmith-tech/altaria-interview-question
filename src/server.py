@@ -151,6 +151,7 @@ class ProductResource(Resource):
             "category": p.category,
             "price": p.price,
             "image_uri":p.image_uri,
+            "rating": p.rating
         } for p in products.items], 200
 
 # API routes
@@ -175,7 +176,7 @@ def seed_products():
             name=fake.word().capitalize() + " " + fake.word().capitalize(),
             category=random.choice(categories),
             price=round(random.uniform(10, 500), 2),
-            rating=[{"rating": round(random.uniform(1, 5), 1), "description": fake.sentence()} for _ in range(random.randint(1, 5))],
+            rating=[{"rating": round(random.randint(1, 5), 1), "description": fake.sentence()} for _ in range(random.randint(1, 5))],
             image_uri=fake.image_url()
         )
         sample_products.append(product)
