@@ -6,12 +6,14 @@ from flask_jwt_extended import JWTManager, create_access_token, jwt_required, ge
 from flask_restful import Api, Resource
 from dotenv import load_dotenv
 from sqlalchemy import JSON
+from flask_cors import CORS
 
 # Load environment variables
 load_dotenv()
 
 # Initialize Flask app and extensions
 app = Flask(__name__)
+CORS(app)
 api = Api(app)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
